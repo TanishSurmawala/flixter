@@ -20,7 +20,7 @@ Flix is an app that allows users to browse movies from the [The Movie Database A
 - [ ] (1pt) Run your app on a real device.
 
 ### App Walkthrough GIF
-<img src="http://g.recordit.co/21BluaWpks.gif" width=250><br>
+<img src="https://giphy.com/gifs/lAgH6EptelMdmvmNF1/html5" width=250><br>
 
 ### Notes
 The biggest challenge I had in this assignment were the error messages. Since Swift is new for me, I had to search up some error messages quiet a bit to resolve the issues. 

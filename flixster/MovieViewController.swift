@@ -17,6 +17,7 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var TableView: UITableView!
     var movies = [[String:Any]]()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,7 +25,7 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
         TableView.delegate = self
 
         // Do any additional setup after loading the view.
-        //print("Hello")
+        
         
     let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
@@ -40,8 +41,6 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             
             self.TableView.reloadData()
-            print(dataDictionary)
-
             
               // TODO: Get the array of movies
               // TODO: Store the movies in a property to use elsewhere
@@ -81,14 +80,29 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        print("Loading up detail screen ")
+        
+        //find selected movie
+        let cell = sender as! UITableViewCell
+        let indexPath = TableView.indexPath(for: cell)!
+        let movie = movies [indexPath.row]
+
+        //pass the selected movie to the details view controller
+        let detailsViewController = segue.destination as! MovieDetailsViewController
+        detailsViewController.movie = movie
+        
+        
+        TableView.deselectRow(at:indexPath, animated:true)
+        
+
     }
-    */
+
 
 }
